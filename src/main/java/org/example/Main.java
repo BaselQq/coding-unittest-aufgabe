@@ -35,13 +35,14 @@ public class Main {
         return false;
     }
 
+    // Task link: https://www.codewars.com/kata/56a4addbfd4a55694100001f/javascript
     public static boolean checkIfSheSaidHallo(String text) {
         String insensitiveText = text.toLowerCase();
         String ignoreForeignCharacters = insensitiveText.replaceAll("[^a-zA-Z\\d\\s:]", " ");
         System.out.println(ignoreForeignCharacters);
         String[] convertedTextToArray = ignoreForeignCharacters.split(" ");
 
-        String[] possiblePeopleHelloes = {"hello","ciao", "salut", "hallo", "hola", "ahoj", "czesc"};
+        String[] possiblePeopleHelloes = {"hello", "ciao", "salut", "hallo", "hola", "ahoj", "czesc"};
 
         for (String arrayText : convertedTextToArray) {
             for (String possibleHello : possiblePeopleHelloes) {
