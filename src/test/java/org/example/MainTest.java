@@ -71,4 +71,14 @@ class MainTest {
         // THEN
         Assertions.assertTrue(checkedNr);
     }
+
+    @Test
+    void checkIfSheSaidHallo_shouldReturnTrue_whenSheSaidHallo() {
+        // GIVEN
+        String text = "Hallo, here is blabla. I miss u!";
+        // WHEN
+        boolean checkText = Main.checkIfSheSaidHallo(text);
+        // THEN
+        Assertions.assertTrue(checkText);
+    }
 }

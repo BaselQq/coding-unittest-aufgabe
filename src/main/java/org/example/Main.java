@@ -4,6 +4,8 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        String text = "Hello, World";
+        checkIfSheSaidHallo(text);
     }
 
     public static int calcSum(int a, int b) {
@@ -33,10 +35,22 @@ public class Main {
         return false;
     }
 
-//    public static boolean checkIfSheSaidHallo(String text) {
-//        String[][] possiblePeopleHelloes = {
-//                {"hello","ciao", "salut", "hallo", "hola", "ahoj", "czesc"},
-//                {"english","italian", "french", "german", "spanish", "czech republic", "polish"}
-//        };
-//    }
+    public static boolean checkIfSheSaidHallo(String text) {
+        String insensitiveText = text.toLowerCase();
+        String ignoreForeignCharacters = insensitiveText.replaceAll("[^a-zA-Z\\d\\s:]", " ");
+        System.out.println(ignoreForeignCharacters);
+        String[] convertedTextToArray = ignoreForeignCharacters.split(" ");
+
+        String[] possiblePeopleHelloes = {"hello","ciao", "salut", "hallo", "hola", "ahoj", "czesc"};
+
+        for (String arrayText : convertedTextToArray) {
+            for (String possibleHello : possiblePeopleHelloes) {
+                if (arrayText.equals(possibleHello)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }
